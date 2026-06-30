@@ -1,2 +1,1 @@
-10 20 30 40 50 60 100 
-size of the linked list: 7
+100 110 
