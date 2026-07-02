@@ -2,27 +2,49 @@
 using namespace std;
 int main()
 {
-	vector<int> v1 = {1, 2};
-	vector<int> v2 = {3};
-	for (int i = 0; i < v2.size(); i++)
+	int t;
+	cin>>t;
+	while(t--)
 	{
-		v1.push_back(v2[i]);
-	}
-	for (int i = 0; i < v1.size(); i++)
-	{
-		cout<<v1[i]<<" ";
-	}
-	cout<<endl;
-	int n = v1.size();
-	if (n % 2 == 0)
-	{
-		double mid = (v1[n / 2 - 1] + v1[n / 2]);
-		cout << mid / 2;
-	}
-	else
-	{ 
-		cout<<n/2;
-		cout << v1[n / 2];
+		int n,k,red=0,blue=0,x=0;
+		cin>>n>>k;
+		vector<int>v;
+		for(int i=0;i<n;i++)
+		{
+			int x;
+			cin>>x;
+			v.push_back(x);
+		}
+		int temp=k,flag=0;
+		while(x!=temp+1)
+		{
+			int r=x,b=k;
+			for(int i=0;i<n;i++)
+			{
+				if(v[i]>0)
+				{
+					r+=v[i];
+					b-=v[i];
+				}
+				else
+				{
+					b+=abs(v[i]);
+					r-=abs(v[i]);
+				}
+			}
+			if(r>=0 && b>=0)
+			{
+				flag=1;
+				break;
+			}
+			x++;
+			k--;
+		}
+		if(flag==1)
+			cout<<"Yes"<<endl;
+		else
+			cout<<"No"<<endl;
+		
 	}
 	return 0;
 }
