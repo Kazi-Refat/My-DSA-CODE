@@ -11,8 +11,15 @@ public:
         this->next = NULL;
     }
 };
-void Delete_at_any_pos(Node* head,int indx)
+void Delete_at_any_pos(Node* &head,int indx)
 {
+  if(indx==0)
+  {
+    Node *deleteNode=head;
+    head=head->next;
+    delete deleteNode;
+    return;
+  }
   Node *curr_node=head;
   for(int i=1;i<indx;i++)
   {
@@ -58,7 +65,7 @@ int main()
       insert_at_tail(head,tail,val);
     }
     print_linked_list(head);
-    Delete_at_any_pos(head,2);
+    Delete_at_any_pos(head,0);
     print_linked_list(head);
     return 0;
 }
