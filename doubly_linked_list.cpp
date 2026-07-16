@@ -2,29 +2,50 @@
 using namespace std;
 class Node{
 public:
-  int val;
+  int data;
   Node *next;
   Node *prev;
 
-  Node(int val)
+  Node(int data)
   {
-    this->val=val;
+    this->data=data;
     this->next=NULL;
     this->prev=NULL;
   }
 };
-
+void insert_at_tail(Node* &head,Node* &tail,int val)
+{
+    Node *newnode=new Node(val);
+    if(head==NULL)
+    {
+        head=newnode;
+        tail=newnode;
+        return;
+    }
+    newnode->prev=tail;
+    tail->next=newnode;
+    tail=newnode;
+}
+void print_linkedList(Node* head)
+{
+    Node *curr_node=head;
+    while(curr_node!=NULL)
+    {
+        cout<<curr_node->data<<" ";
+        curr_node=curr_node->next;
+    }
+    cout<<endl;
+}
 int main()
 {
-  Node *head=new Node(10);
-  Node *A=new Node(20);
-  Node *tail=new Node(30);
-
-  head->next=A;
-  A->next=tail;
-
-  tail->prev=A;
-  A->prev=head;
-  cout<<head->val<<" "<<head->next->val<<" "<<head->next->next->val<<endl;
-  cout<<tail->val<<" "<<tail->prev->val<<" "<<tail->prev->prev->val;
+  Node *head=NULL,*tail=NULL;
+  while(true)
+  {
+    int x;
+    cin>>x;
+    if(x==-1)
+      break;
+    insert_at_tail(head,tail,x);
+  }
+  print_linkedList(head);
 }
