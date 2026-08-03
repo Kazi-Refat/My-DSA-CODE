@@ -66,7 +66,7 @@ int find_nodes(Node *root,int val)
 int main()
 {
   Node *root=input_tree();
-  int flag=find_nodes(root,2);
+  int flag=find_nodes(root,3);
   if(flag==1)
     cout<<"True";
   else
