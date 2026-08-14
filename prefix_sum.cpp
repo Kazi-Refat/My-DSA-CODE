@@ -24,15 +24,15 @@ int main()
 	
 	while(q--)
 	{
-		int s, e;
-		cin >> s >> e;
-		if(s==1)
+		int R, L;
+		cin >> R >> L;
+		if(L==1)
 		{
-			cout<<prefix_sum[e-1]<<endl;
+			cout<<prefix_sum[R-1]<<endl;
 		}
 		else
 		{
-			cout<<prefix_sum[e-1]-prefix_sum[s-2]<<endl;
+			cout<<prefix_sum[R-1]-prefix_sum[L-2]<<endl;
 		}
 	}
 	return 0;
