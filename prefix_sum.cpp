@@ -25,7 +25,7 @@ int main()
 	while(q--)
 	{
 		int R, L;
-		cin >> R >> L;
+		cin >> L >> R;
 		if(L==1)
 		{
 			cout<<prefix_sum[R-1]<<endl;
